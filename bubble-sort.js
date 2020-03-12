@@ -32,13 +32,17 @@ function bubbleSort(vet) {
 
 let nums = [7, 4, 1, 9, 0, 3, 6, 8, 2, 5]
 
+let nomes = require('./amostras/100-mil-nomes')
+
 comps = 0
 trocas = 0
 pass = 0
 
 console.time('bubble-sort') // Marca a hora de início
-bubbleSort(nums)
+//bubbleSort(nums)
+bubbleSort(nomes)
 console.timeEnd('bubble-sort') // Marca o horário final e exibe a diferença
 
-console.log(nums)
+//console.log(nums)
+console.log(nomes)
 console.log({ comps, trocas, pass })
