@@ -36,3 +36,17 @@ let nums = [8, 3, 2, 9, 4, 0, 6, 5, 2, 7, 1]
 selectionSort(nums)
 
 console.log(nums)
+
+const nomes = require('./amostras/100-mil-nomes')
+
+comps = 0, pass = 0, trocas = 0
+//quickSort(nums)
+
+//console.log(nums)
+//console.log({comps, pass, trocas})
+
+console.time('selection-sort')
+selectionSort(nomes)
+console.timeEnd('selection-sort')
+console.log(nomes)
+console.log({comps, pass, trocas})
