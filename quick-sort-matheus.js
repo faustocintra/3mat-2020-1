@@ -36,12 +36,7 @@ function quickSort(vet, fnComp, posIni = 0, posFim = vet.length - 1) {
             dois valores para ordenação.
          
          */
-
-         /* COMPARAÇÃO EMBUTIDA: SÓ FUNCIONA PARA NÚMEROS E STRINGS */
          //if(vet[i] < vet[posPivot] && i != posDiv) {
-         
-         /* COMPARAÇÃO VIA FUNÇÃO: A FUNÇÃO SE RESPONSABILIZA POR DETERMINAR
-            A ORDEM DOS ELEMENTOS COMPARADOS */
          if(fnComp(vet[posPivot], vet[i])) {
             posDiv++
             troca(vet, i, posDiv)
@@ -79,19 +74,19 @@ console.log(nomes)
 console.log({comps, pass, trocas})
  */
 
- let pessoas = [
+ /*let pessoas = [
    { codigo: 7, nome: 'Cláudio Cardoso', idade: 13, sexo: 'M' },
    { codigo: 1, nome: 'Maria Moreira', idade: 43, sexo: 'F' },
    { codigo: 4, nome: 'Fulgêncio Ferreira', idade: 71, sexo: 'M '},
    { codigo: 5, nome: 'Heitor Herrera', idade: 13, sexo: 'M ' },
    { codigo: 3, nome: 'Tatiana Taveira', idade: 35, sexo: 'F' },
    { codigo: 2, nome: 'Olivia Oliveira', idade: 13, sexo: 'F' } 
- ]
+ ]*/
 
 function comparaPorNome(a, b) {
    // Retorna true se a > b
    // Retona false caso contrario
-   return a.nome > b.nome
+   return   nomes[a] > nomes[b]
 }
 
 function comparaPorCodigo(a, b) {
@@ -121,26 +116,9 @@ function comparaPorIdadeDesc(a, b) {
    return a.idade < b.idade
 }
 
-//console.log(pessoas)
 
-//quickSort(pessoas, comparaPorIdadeDesc)
 
-//console.log(pessoas)
-
-let nums = [4, 7, 9, 0, 6, 3, 5, 1, 8, 2]
-
-function comparaNums(x, y) {
-   return x > y
-}
-
-function comparaNumsDesc(x, y) {
-   return x < y
-}
-
-quickSort(nums, comparaNumsDesc)
-
-// No lugar de uma função já existente, é possivel
-// usar uma arrow function
-//quickSort(nums, (x, y) => x < y)
-
-console.log(nums)
+let nomes = require('./amostras/100-mil-nomes')
+console.log(nomes)
+quickSort(nomes,comparaPorNome)
+console.log(nomes)
