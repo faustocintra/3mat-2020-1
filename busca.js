@@ -75,7 +75,7 @@ console.log({comps}) */
 
 //console.log(objNomes)
 
-comps = 0
+/* comps = 0
 console.time('sequencial')
 console.log(buscaSequencial(objNomes, 'WALDISNEY', comparaFirstName))
 console.timeEnd('sequencial')
@@ -85,4 +85,29 @@ comps = 0
 console.time('binaria')
 console.log(buscaBinaria(objNomes, 'WALDISNEY', comparaFirstName))
 console.timeEnd('binaria')
-console.log({comps})
+console.log({comps}) */
+
+let covid = require('./amostras/covid')
+
+// Filtrando apenas os dados da semana 20
+let semana20dia12 = covid.filter((o => o.date == '2020-05-12'))
+
+// Usando quicksort nativo do JS
+let semana20ordCity = semana20dia12.sort((a, b) => {
+   if(a.city == b.city) return 0
+   else if(a.city > b.city) return 1
+   else return -1
+})
+
+//console.log(semana20ordCity)
+
+function comparaCity(busca, obj) {
+   if(busca == obj.city) return 0
+   else if(busca > obj.city) return 1
+   else return -1
+}
+
+let pos = buscaBinaria(semana20ordCity, 'Franca', comparaCity)
+
+console.log({pos})
+console.log(semana20ordCity[pos])
