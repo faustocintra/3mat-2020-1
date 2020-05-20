@@ -12,7 +12,7 @@ function troca(vet, i, j) {
 }
 
 let comps, pass, trocas
-function bubbleSort(vet) {
+function bubbleSort(vet, fnComp) {
    let trocou
    do {
       pass++
@@ -21,7 +21,9 @@ function bubbleSort(vet) {
       // no PENÚLTIMO elemento (i < vet.length - 1)
       for(let i = 0; i < vet.length - 1; i++) {
          comps++
-         if(vet[i + 1] < vet[i]) {
+         // Se o elemento posterior (i + 1) for menor que o atual
+         //if(vet[i + 1] < vet[i]) {
+         if(fnComp(vet[i], vet[i + 1])) {
             troca(vet, i, i + 1)
             trocou = true
             trocas++
@@ -30,9 +32,31 @@ function bubbleSort(vet) {
    } while(trocou)
 }
 
+let covid = require('./amostras/covid-dia1305')
+
+function comparaCity(a, b) {
+   return a.city > b.city
+}
+
+bubbleSort(covid, comparaCity)
+
+console.log(covid)
+console.log(covid.length)
+
+// Retornar true se a > b
+// false se contrário
+/* function comparaNumeros(a, b) {
+   // console.log({a, b})
+   return a > b
+}
+
 let nums = [7, 4, 1, 9, 0, 3, 6, 8, 2, 5]
 
-let nomes = require('./amostras/100-mil-nomes')
+bubbleSort(nums, comparaNumeros)
+
+console.log(nums) */
+
+/* let nomes = require('./amostras/100-mil-nomes')
 
 comps = 0
 trocas = 0
@@ -45,4 +69,4 @@ console.timeEnd('bubble-sort') // Marca o horário final e exibe a diferença
 
 //console.log(nums)
 console.log(nomes)
-console.log({ comps, trocas, pass })
+console.log({ comps, trocas, pass }) */
