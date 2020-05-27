@@ -1,4 +1,4 @@
-function fatorial(n) {
+function f(n) {
    console.log('Valor de n = ' + n)
    if(n < 0) {
       return 0
@@ -7,12 +7,12 @@ function fatorial(n) {
       return 1
    }
    else {
-      let fat = n * fatorial(n - 1)
+      let fat = n * f(n - 1)
       console.log('Resultado = ' + fat)
       return fat
    }
 }
-console.log(fatorial(5))
+console.log(f(5))
 
 function potenc(n, p) {
    console.log('Valor de p = ' + p)
