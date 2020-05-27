@@ -30,6 +30,12 @@ for(let i = 0; i < nums.length; i++) {
    soma2 += nums[i]
 }
 
+// Pode-se passar um valor inicial para o acumulador do
+// reduce() APÓS a função de redução
+let somaValIni = nums.reduce((soma, n) => soma + n, 10)
+console.log(somaValIni)
+process.exit(0)
+
 //console.log(soma)
 //console.log(soma2)
 //console.log(media)
